@@ -219,5 +219,7 @@
     <regla>Complexity classification is mandatory; it determines the system's resource consumption</regla>
     <regla>If ambiguity is HIGH → NEEDS_CLARIFICATION before continuing. LOW/MEDIUM ambiguity: decide with the source hierarchy, record the decision, and continue without stopping execution.</regla>
     <regla>The analysis is not the deliverable: after emitting the plan, execution continues with the specialists in the same session.</regla>
+    <regla>The final done decision is core/quality-pipeline.xml. This orchestrator does not declare the story complete.</regla>
+    <regla>Incremental documents are written under docs/development/ when that directory is in use. If it is absent, keep the legacy docs/user-stories.md, docs/code-structure.md, docs/implementation-report.md, and docs/integration-report.md paths.</regla>
   </reglas_finales>
 </prompt>

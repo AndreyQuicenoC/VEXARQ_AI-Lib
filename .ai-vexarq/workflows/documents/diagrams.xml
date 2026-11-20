@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prompt>
+  <metadata>
+    <id>documents.diagrams</id>
+    <name>Mermaid diagrams</name>
+    <version>3.1.0</version>
+    <hereda>../../core/policies.xml</hereda>
+    <salida>docs/design/diagrams/*.mmd</salida>
+  </metadata>
+
+  <tipos>Context, container, component, deployment, sequence, state, entity-relationship, and data flow. Use flowchart, sequenceDiagram, stateDiagram-v2, erDiagram, or C4Context. Use architecture-beta only when the renderer in the project supports it.</tipos>
+  <minimo>
+    <nivel name="SIMPLE">Context, plus one sequence when a flow is in scope.</nivel>
+    <nivel name="COMPLEX">Context, container, deployment, the key sequences, and an entity-relationship diagram when a data model exists.</nivel>
+  </minimo>
+  <reglas>
+    <regla>The .mmd file is the source. The SAD links to it. A fenced copy in Markdown must match the file.</regla>
+    <regla>Label the diagram AS-IS, TO-BE, PROPOSED, or IMPLEMENTED. An invented target is PROPOSED, never IMPLEMENTED.</regla>
+    <regla>Split a diagram that is too dense to read.</regla>
+    <regla>When mermaid-cli is available, validate syntax and record the command. When it is not, record syntax not validated. Do not write valid.</regla>
+    <regla>A database phase produces the entity-relationship diagram. A design phase produces the views the SAD needs.</regla>
+  </reglas>
+</prompt>

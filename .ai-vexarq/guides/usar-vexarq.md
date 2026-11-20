@@ -58,3 +58,4 @@ A small correction does not walk that list.
 - Extended backlog: `workflows/lifecycle/backlog-extended.xml` and `formats/backlog/EXTENDED_BACKLOG.md`
 - User stories on existing code: `guides/user-story-implementation.xml`
 - Git: `core/git-workflow.xml` and `formats/delivery/COMMIT_CONVENTIONS.md`
+- Factory, quality pipeline, refactor, and cost: `workflows/factory/orchestrator.xml`, `core/quality-pipeline.xml`, `workflows/refactoring/orchestrator.xml`, `core/economics.xml`

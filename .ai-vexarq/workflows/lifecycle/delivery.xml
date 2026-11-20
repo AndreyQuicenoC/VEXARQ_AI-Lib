@@ -14,6 +14,7 @@
     <paso>List files created or modified and the reason.</paso>
     <paso>Separate checks that were executed, checks that were not executed, and assumptions.</paso>
     <paso>Update docs/vexarq/status.html. The current phase, its state, and the link to the current artifact.</paso>
+    <paso>When the request closes a release, add the runbook, the technical closure, and the QA closure only if their inputs exist. Economics closure runs only when economics was activated.</paso>
     <paso>If the change is versioned, propose the commit from the delivery format. Create it only when the user asked for it.</paso>
   </hacer>
 

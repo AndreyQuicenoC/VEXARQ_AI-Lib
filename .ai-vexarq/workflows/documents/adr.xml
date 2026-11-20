@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prompt>
+  <metadata>
+    <id>documents.adr</id>
+    <name>Architecture decision record</name>
+    <version>3.1.0</version>
+    <hereda>../../core/policies.xml</hereda>
+    <formato>formats/design/ADR.md</formato>
+    <salida>docs/design/ADR-NNNN.md</salida>
+  </metadata>
+
+  <campos>Id, title, status, date, context, options, decision, consequences, and links to the SAD section.</campos>
+  <regla>Write an ADR when a decision is hard to reverse or when a refactor would diverge from the SAD. Do not write one for a local naming choice.</regla>
+  <regla>Status is proposed until the user accepts it. Do not mark a proposed decision as implemented.</regla>
+</prompt>

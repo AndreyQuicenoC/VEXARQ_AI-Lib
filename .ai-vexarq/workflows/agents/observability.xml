@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prompt>
+  <metadata>
+    <id>agent.observability</id>
+    <name>Logging and observability</name>
+    <version>3.1.0</version>
+    <hereda>../../core/policies.xml</hereda>
+  </metadata>
+
+  <cubre>Structured logs, correlation, traces, RED or USE metrics, health checks, symptom-based alerts with a runbook link, and separate audit logs.</cubre>
+  <campos>timestamp, level, service, environment, version, trace id, event, outcome, duration. User or tenant identifiers are pseudonyms.</campos>
+  <regla>Redact at the logger with an allow-list. A test of a sensitive flow must show that secrets and personal data are absent from the log line.</regla>
+  <regla>The same field names apply to the frontend, the backend, workers, and infrastructure.</regla>
+  <regla>OpenTelemetry is the default instrumentation shape when the project does not already have one. Do not add a second collector.</regla>
+</prompt>

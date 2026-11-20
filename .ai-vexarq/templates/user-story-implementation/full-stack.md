@@ -1,4 +1,7 @@
 @.ai-vexarq/core/policies.xml
+@.ai-vexarq/core/language.xml
+@.ai-vexarq/core/documentation-governance.xml
+@.ai-vexarq/core/quality-pipeline.xml
 @.ai-vexarq/workflows/user-story-implementation/orchestrator.xml
 
 Implement the following User Story using the user-story-implementation multi-agent workflow.
@@ -9,9 +12,10 @@ Implement the following User Story using the user-story-implementation multi-age
    - Backend: @.ai-vexarq/workflows/user-story-implementation/backend.xml
    - Frontend: @.ai-vexarq/workflows/user-story-implementation/frontend.xml
    - Integrator: @.ai-vexarq/workflows/user-story-implementation/integrator.xml
-3. Each agent updates docs/ (user-stories.md, code-structure.md, implementation-report.md, integration-report.md)
-4. Implement real code and run tests
-5. Do not stop at analysis alone; produce verifiable changes
+3. Update development docs per @.ai-vexarq/core/documentation-governance.xml (`docs/development/`; legacy `docs/*.md` if the project still uses it)
+4. Implement real code; after each change rerun @.ai-vexarq/core/quality-pipeline.xml from G-00
+5. Do not declare completion without pipeline evidence on the final SHA
+6. Do not stop at analysis alone; produce verifiable changes
 
 ---
 
@@ -42,7 +46,7 @@ Implement the following User Story using the user-story-implementation multi-age
 
 ## Expected output
 
-- Documentation updated in `docs/user-stories.md`, `docs/code-structure.md`, `docs/implementation-report.md`, `docs/integration-report.md`
+- Documentation updated in `docs/development/` (user-stories, code-structure, implementation-report, integration-report) or legacy `docs/` paths when applicable
 - Code implemented and working
 - Tests executed and passing
 - Traceability user story → code → tests → evidence

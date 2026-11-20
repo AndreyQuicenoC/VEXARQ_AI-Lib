@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prompt>
+  <metadata>
+    <id>economics.track</id>
+    <name>Cost tracking and variance</name>
+    <version>3.1.0</version>
+    <hereda>../../core/economics.xml</hereda>
+  </metadata>
+
+  <hacer>
+    <paso>Update docs/estimates/COST_TRACKING.md from hours or costs the user or the repository recorded.</paso>
+    <paso>Compute earned-value indexes only when PV, EV, and AC exist. Name the missing input otherwise.</paso>
+    <paso>Velocity uses accepted points from completed sprints the user supplied. Without history, say the forecast cannot be computed.</paso>
+    <paso>A change in scope appends docs/estimates/CHANGE_COST_ANALYSIS.md. Do not edit an approved COST_BASELINE.md.</paso>
+  </hacer>
+</prompt>

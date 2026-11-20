@@ -2,7 +2,7 @@
 
 A modular system for AI-assisted software engineering. Copy the `.ai-vexarq` folder into a project and the agent has a way to interpret a request, decide which artifact to produce, decide what a person must validate, and decide which evidence closes the work.
 
-VEXARQ continues FRAMAI. The multi-agent user-story engine, the engineering standards, and the Git flow from version 2.2.0 remain in the library. Version 3.0.0 puts a product lifecycle around that engine.
+VEXARQ continues FRAMAI. The multi-agent user-story engine, the engineering standards, and the Git flow from version 2.2.0 remain in the library. Version 3.0.0 puts a product lifecycle around that engine. Version 3.1.0 adds a factory orchestrator, a quality pipeline that must finish green, specialist auditors, refactoring that stops without the source documents, and cost rules that refuse to invent rates.
 
 The library is written in English. Code, documents, and other generated text follow the language the user is using. An explicit language request overrides that detection. See `.ai-vexarq/core/language.xml`.
 
@@ -72,6 +72,18 @@ Detail: [SECURITY.md](SECURITY.md) and `.ai-vexarq/core/git-workflow.xml`.
   templates/lifecycle/          text ready to paste
 ```
 
+## Factory in 3.1.0
+
+The factory entry is `.ai-vexarq/workflows/factory/orchestrator.xml`. The 3.0.0 lifecycle orchestrator still works.
+
+Paste `.ai-vexarq/templates/implementation/request.md` for a feature that is not a user story. Paste `.ai-vexarq/templates/refactoring/full-stack.md` to refactor. If the SRS, SAD, backlog, or test document is missing, the workflow stops with `BLOCKED — REQUIRED DOCUMENTATION MISSING`. Paste `.ai-vexarq/templates/targeted-fix/full-stack.md` for a local fix. It appends a redacted fix register and does not walk the lifecycle.
+
+Implementation is done only when `.ai-vexarq/core/quality-pipeline.xml` has no unresolved mandatory gate. A code change reruns the pipeline from the start.
+
+Promoted documents live in `docs/planning/`, `docs/design/`, `docs/development/`, `docs/quality/`, `docs/qa/`, and `docs/estimates/`. Until a project migrates a file, readers still use `docs/vexarq/current/`.
+
+Cost estimates ask for currency and rates. They do not invent salaries or prices.
+
 ## License
 
-MIT. See [LICENSE](LICENSE).
+Proprietary, all rights reserved. See [LICENSE](LICENSE). Copies already received under the MIT license stay under MIT. Changing this file does not change the repository's visibility.

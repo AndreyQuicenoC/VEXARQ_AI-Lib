@@ -1,30 +1,50 @@
-# Template — Targeted correction (front / back / full-stack)
+@.ai-vexarq/core/policies.xml
+@.ai-vexarq/core/language.xml
+@.ai-vexarq/core/quality-pipeline.xml
+@.ai-vexarq/workflows/factory/orchestrator.xml
 
-## Metadata
+**Targeted correction** on existing code. This is not a full product lifecycle walk.
+
+## Binding contracts
+
+- @.ai-vexarq/workflows/factory/orchestrator.xml (routing and contract)
+- @.ai-vexarq/core/quality-pipeline.xml (mandatory completion)
+- Fix register format: `.ai-vexarq/formats/development/FIX_REGISTER.md`
+
+## Execution instructions
+
+1. Reproduce the symptom and record environment (branch, command, data shape — redact secrets).
+2. Identify root cause; prefer the smallest fix plus a regression test.
+3. Scope: **frontend | backend | full-stack** — state which applies below.
+4. After every code change, rerun the quality pipeline from G-00.
+5. Append `docs/development/FIX_REGISTER.md` with symptom, cause, fix, tests, and residual risk.
+6. Redact secrets, tokens, personal data, and exploit detail in reports.
+7. Commit only when the user asks (Git specialist). Do not push unless asked.
+
+## Request metadata
 
 | Field | Value |
-|-------|--------|
-| **Type** | `targeted-fix` |
-| **Scope** | `frontend-only` \| `backend-only` \| `full-stack` |
-| **Complexity** | `auto` (inferred) or `TRIVIAL` … `COMPLEX` |
+| --- | --- |
+| Scope | `[frontend \| backend \| full-stack]` |
+| Severity | `[blocking \| major \| minor]` |
 
-## Expected input
+## Problem description
 
-- List of UX corrections, bugs, or improvements (not necessarily a user story).
-- Affected repositories and base branch (`feature/ep-XX-…` or `develop`).
-- Optional visual reference (e.g. demo in `DashNode-Demo/`).
-- Constraints: do not break CI, safe migrations, literal domain messages.
+**Symptom:** [What fails, error message, screenshot reference.]
 
-## Recommended flow
+**Expected behavior:** [Correct outcome.]
 
-1. **Orchestrator** with `requested_scope` and batch mode if there are >10 items.
-2. Classify complexity (`auto`: count files, auth, migrations, API contracts).
-3. **Backend** first if there are new contracts or security rules.
-4. **Frontend** aligned to the demo (Lucide icons, no emojis in production UI).
-5. **Integrator**: `make check` / `npm run check`, migration `alembic upgrade head`.
-6. Separate commits per layer or per theme (`fix(ui): …`, `feat(auth): …`).
+**Where to look:** [File, endpoint, route, recent change.]
 
-## Output
+**Reproduction steps:**
 
-- Summary of closed items vs pending.
-- Test evidence and push to the agreed branch.
+1. [Step]
+2. [Step]
+
+---
+
+## Expected output
+
+- Fix with regression test
+- FIX_REGISTER entry
+- Quality pipeline evidence on final SHA

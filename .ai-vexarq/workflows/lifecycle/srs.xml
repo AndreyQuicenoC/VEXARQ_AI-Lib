@@ -3,7 +3,7 @@
   <metadata>
     <id>lifecycle.srs</id>
     <name>Phase — Software requirements specification</name>
-    <version>3.0.0</version>
+    <version>3.1.0</version>
     <formato>formats/srs/SRS.md</formato>
     <salida>docs/vexarq/preliminary/srs/SRS.md</salida>
     <insumo>docs/vexarq/current/acercamiento/proyecto.md</insumo>
@@ -18,6 +18,8 @@
     <paso>Name real actors. Do not duplicate the same behavior once per role.</paso>
     <paso>When a message, a limit, or a rule is missing, write PENDING. In continuo mode, fill it with an explicit and conservative STANDARD_ASSUMPTION.</paso>
     <paso>Close with an initial traceability matrix: rule, requirement, verification. Stories do not exist yet, so the story column stays empty.</paso>
+    <paso>Also complete sections 10 through 16 of the format: baseline, security, accessibility, privacy, deployment requirements, release acceptance, and an empty approval block. Do not copy content from a calibration example.</paso>
+    <paso>Write the preliminary under docs/vexarq/preliminary/srs/. The promoted copy belongs in docs/planning/SRS.md. Until promotion, readers still accept docs/vexarq/current/srs/SRS.md.</paso>
   </hacer>
 
   <calidad>

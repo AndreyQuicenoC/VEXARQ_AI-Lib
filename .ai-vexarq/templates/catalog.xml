@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prompt>
+  <metadata>
+    <name>Template catalog</name>
+    <version>3.1.0</version>
+  </metadata>
+
+  <plantilla id="lifecycle-cycle" path="lifecycle/ciclo.md" delega="workflows/lifecycle/orchestrator.xml"/>
+  <plantilla id="lifecycle-phase" path="lifecycle/fase.md" delega="workflows/lifecycle/orchestrator.xml"/>
+  <plantilla id="lifecycle-continuous" path="lifecycle/continuo.md" delega="workflows/lifecycle/orchestrator.xml"/>
+  <plantilla id="user-story" path="user-story-implementation/" delega="workflows/user-story-implementation/orchestrator.xml"/>
+  <plantilla id="targeted-fix" path="targeted-fix/full-stack.md" delega="workflows/factory/orchestrator.xml"/>
+  <plantilla id="implementation" path="implementation/request.md" delega="workflows/factory/orchestrator.xml"/>
+  <plantilla id="refactor" path="refactoring/full-stack.md" delega="workflows/refactoring/orchestrator.xml"/>
+  <plantilla id="refactor-backend" path="refactoring/backend.md" delega="workflows/refactoring/orchestrator.xml"/>
+  <plantilla id="refactor-frontend" path="refactoring/frontend.md" delega="workflows/refactoring/orchestrator.xml"/>
+  <nota>Authoring contract for all paste templates: templates/TEMPLATE_GUIDE.md</nota>
+  <plantilla id="security-audit" path="audits/security.md" delega="workflows/agents/security-audit.xml"/>
+  <plantilla id="cost-estimate" path="economics/estimate.md" delega="workflows/economics/estimate.xml"/>
+</prompt>

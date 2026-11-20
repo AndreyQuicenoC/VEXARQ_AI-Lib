@@ -1,0 +1,9 @@
+flowchart LR
+  user[User request] --> factory[Factory orchestrator]
+  factory --> life[Lifecycle orchestrator]
+  factory --> hu[User-story engine]
+  factory --> refactor[Refactoring engine]
+  life --> qpc[Quality pipeline]
+  hu --> qpc
+  refactor --> qpc
+  qpc --> evidence[Gate evidence]

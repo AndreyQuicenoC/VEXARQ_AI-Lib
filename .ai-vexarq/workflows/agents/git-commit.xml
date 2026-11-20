@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prompt>
+  <metadata>
+    <id>agent.git-commit</id>
+    <name>Git and commit quality</name>
+    <version>3.1.0</version>
+    <hereda>../../core/policies.xml</hereda>
+    <referencia path="../../core/git-workflow.xml"/>
+    <referencia path="../../formats/delivery/COMMIT_CONVENTIONS.md"/>
+  </metadata>
+
+  <formato>type(scope): imperative summary. Types: feat, fix, refactor, test, docs, chore, ci, build, perf, revert. Subject at most 72 characters, no trailing period. A breaking change uses a BREAKING CHANGE footer.</formato>
+  <cuerpo>What changed, why, modules, requirement or fix ids, and the quality-pipeline run id plus SHA. Do not write a test result that was not executed.</cuerpo>
+  <reglas>
+    <regla>Reject subjects such as update, changes, fix stuff, or wip.</regla>
+    <regla>One logical change per commit. Plan the series before a multi-step change.</regla>
+    <regla>Reject a staged diff that contains secrets, build output, or unrelated files.</regla>
+    <regla>Do not commit to a protected branch. Do not push. Push stays at gate G5.</regla>
+    <regla>Do not install commitlint unless the user asks.</regla>
+  </reglas>
+</prompt>

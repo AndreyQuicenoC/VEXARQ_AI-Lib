@@ -20,6 +20,9 @@
     <paso>Load policies, engineering-standards, and design-system for the layer being touched. The user-story workflow keeps its routing and its adaptive complexity.</paso>
     <paso>Write code, tests, and the minimum documentation for the change. Update the four incremental documents when the change justifies it.</paso>
     <paso>The report says what was verified and what was not. A test that was not run is not listed as passing.</paso>
+    <paso>The done decision belongs to core/quality-pipeline.xml. Do not declare the story complete while a mandatory gate is unresolved.</paso>
+    <paso>A free-text request gets an execution contract inside docs/development/implementation-report.md before code is written.</paso>
+    <paso>When a correction happens, append docs/development/FIX_REGISTER.md.</paso>
     <paso>Commits follow git-workflow.xml and formats/delivery/COMMIT_CONVENTIONS.md, only when the user asked for version control. A push requires explicit authorization.</paso>
   </hacer>
 

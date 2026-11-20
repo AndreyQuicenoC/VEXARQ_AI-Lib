@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prompt>
+  <metadata>
+    <id>economics.estimate</id>
+    <name>Cost estimate</name>
+    <version>3.1.0</version>
+    <hereda>../../core/economics.xml</hereda>
+    <formato>formats/estimates/ECONOMICS.md</formato>
+  </metadata>
+
+  <hacer>
+    <paso>Ask for currency and rates when they are missing. Do not continue a labor-cost figure without them.</paso>
+    <paso>Read scope from the current SRS and backlog. Companion cost rows do not alter the 22-column CSV.</paso>
+    <paso>Select a method from economics.xml and write the required estimate sections.</paso>
+    <paso>Mark AI or cloud prices PROVISIONAL unless a source URL and retrieval date are recorded.</paso>
+  </hacer>
+</prompt>

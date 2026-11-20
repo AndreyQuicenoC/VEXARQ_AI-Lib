@@ -3,7 +3,7 @@
   <metadata>
     <id>lifecycle.orchestrator</id>
     <name>VEXARQ — Lifecycle orchestrator</name>
-    <version>3.0.0</version>
+    <version>3.1.0</version>
     <hereda>../../core/policies.xml</hereda>
     <uso>Single entry point. It covers one phase or the full cycle. It does not replace the backlog canon or the archetype canon.</uso>
   </metadata>
@@ -25,7 +25,7 @@
     <paso>Read docs/vexarq/status.html and docs/vexarq/current/ when they exist. The most advanced phase that has its current artifact marks the starting point.</paso>
     <paso>If the user names a phase, that is the working phase, provided its current inputs exist. If they are missing, stop and say which one is missing. Do not skip ahead by using preliminaries.</paso>
     <paso>If there is no docs/vexarq folder and the request is to build or define a product, start at acercamiento.</paso>
-    <paso>If the request is a correction, a user story, or a local change on existing code, do not walk the cycle. Delegate to workflows/user-story-implementation/ or to templates/targeted-fix/, according to the scope.</paso>
+    <paso>If the request is a correction, a user story, a refactor, or a local change on existing code, do not walk the cycle. Delegate to workflows/factory/orchestrator.xml, which keeps this file as the lifecycle entry.</paso>
     <paso>Apply language.xml to every generated document, interface string, and comment meant for a person.</paso>
   </deteccion>
 

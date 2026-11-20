@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prompt>
+  <metadata>
+    <id>documents.observations</id>
+    <name>Technical observations and closure of findings</name>
+    <version>3.1.0</version>
+    <hereda>../../core/policies.xml</hereda>
+    <referencia path="../../core/finding-contract.xml"/>
+    <formato>formats/qa/TECHNICAL_OBSERVATIONS.md</formato>
+    <salida>docs/qa/TECHNICAL_OBSERVATIONS.md</salida>
+    <origen>Structure derived from an observations-and-closure example. Findings come from this project only.</origen>
+  </metadata>
+
+  <secciones>
+    <seccion>Index, purpose, and scope.</seccion>
+    <seccion>Summary table: id, kind, severity, status, linked requirement.</seccion>
+    <seccion>Detail using the finding contract. Kind is confirmed defect, inferred risk, or pending clarification.</seccion>
+    <seccion>Closure note per finding: evidence path, residual risk, and the human decision still open.</seccion>
+  </secciones>
+
+  <regla>Do not copy observations from a calibration document. Do not mark a finding closed without a quality-pipeline SHA or an explicit human acceptance.</regla>
+</prompt>

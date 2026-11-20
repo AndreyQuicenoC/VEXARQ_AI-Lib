@@ -38,5 +38,6 @@
     <regla>Update only data-vexarq fields. Do not add panels, a long history, or prompt text.</regla>
     <regla>Link each phase to its current document. If only a preliminary exists, the link text is Preliminary and it points at that file. If neither exists, the state is pending and there is no broken link.</regla>
     <regla>Allowed state tokens: pending, in progress, preliminary, current, blocked, not applicable.</regla>
+    <regla>From 3.1.0, a promoted document is written to the lifecycle directory in documentation-governance.xml. docs/vexarq/current/INDEX.md points at it. If the lifecycle file is absent, read the legacy path under docs/vexarq/current/.</regla>
   </actualizacion_del_tablero>
 </prompt>

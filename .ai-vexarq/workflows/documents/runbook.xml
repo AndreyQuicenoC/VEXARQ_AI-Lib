@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prompt>
+  <metadata>
+    <id>documents.runbook</id>
+    <name>Quality and deployment runbook</name>
+    <version>3.1.0</version>
+    <hereda>../../core/policies.xml</hereda>
+    <formato>formats/development/RUNBOOK.md</formato>
+    <salida>docs/development/operations/RUNBOOK.md</salida>
+    <origen>Structure derived from an operations example. Commands come from the repository and the SAD, not from the example.</origen>
+  </metadata>
+
+  <secciones>
+    <seccion>Purpose, audience, and scope.</seccion>
+    <seccion>Quality gates. Use quality-pipeline.xml identifiers. Do not invent a second gate numbering.</seccion>
+    <seccion>Promotion sequence and rollback sequence. Each step names the real workflow file or script when one exists, otherwise PENDING.</seccion>
+    <seccion>Checklists for cutover, pre-production review, rollback, and manual accessibility. A checklist item without an owner stays open.</seccion>
+    <seccion>Diagrams link to docs/design/diagrams/. They are not a second copy.</seccion>
+    <seccion>Procedures that are not written yet are listed as pending. Do not fill them from another project.</seccion>
+  </secciones>
+
+  <regla>The runbook must agree with the current SAD and the CI files in the repository. A contradiction is recorded, not smoothed over.</regla>
+</prompt>
