@@ -66,3 +66,31 @@ Entities or documents the requirements need, without turning this section into t
 ## 9. Open questions
 
 What prevents a requirement from being verified. Do not close them with an invention.
+
+## 10. Baseline and brownfield constraints
+
+Current system behavior that this specification must preserve, and constraints of the existing project. Separate confirmed behavior from inference.
+
+## 11. Security requirements
+
+Controls the product needs, mapped to a named OWASP list and year. Each control has a verification criterion. Do not copy findings from another product.
+
+## 12. Usability and accessibility
+
+WCAG 2.2 AA unless the user set another level. Include the acceptance checks for the release gate.
+
+## 13. Privacy, retention, and compliance
+
+Data classes, retention, deletion, and the rule that applies. A missing legal basis stays pending.
+
+## 14. Deployment, operation, and rollback
+
+What must be true to deploy, operate, and roll back. Commands belong to the runbook after they exist in the repository.
+
+## 15. Release acceptance and deferred work
+
+Acceptance criteria for the requested release, and work explicitly left out.
+
+## 16. Approval
+
+Names and dates stay empty until a person signs. The model does not sign.

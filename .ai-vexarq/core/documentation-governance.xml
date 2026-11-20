@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prompt>
+  <metadata>
+    <id>core.documentation-governance</id>
+    <name>CORE — Root discovery and lifecycle documentation</name>
+    <version>3.1.0</version>
+    <hereda>policies.xml</hereda>
+    <decision id="ADR-VEX-001">Option A. Preliminaries stay in docs/vexarq/preliminary/. Promoted documents live in the lifecycle directory. docs/vexarq/current/INDEX.md is the pointer map. Readers resolve the lifecycle path first, then the legacy docs/vexarq/current/ path.</decision>
+  </metadata>
+
+  <descubrimiento>
+    <regla>Identify every affected project root. Do not assume the working directory is the root.</regla>
+    <evidencia>.git, package.json, pnpm-workspace.yaml, turbo.json, nx.json, pyproject.toml, requirements.txt, pom.xml, build.gradle, Cargo.toml, go.mod, a solution or csproj, composer.json, Dockerfile, docker-compose, Terraform, Helm, src/, tests/, CI files.</evidencia>
+    <clases>single frontend, single backend, monolith, monorepo, multiple repositories, shared library, infrastructure repository.</clases>
+    <regla>Each repository root keeps its own docs/. A shared index exists only when a real coordinating root exists.</regla>
+    <regla>A monorepo uses one docs/ at the repository root unless a package is independently owned and deployed.</regla>
+    <regla>Never write consumer project documents inside .ai-vexarq/.</regla>
+  </descubrimiento>
+
+  <estructura>
+    <directorio path="docs/planning/">SRS, backlog, scope, constraints, risks, deployment planning.</directorio>
+    <directorio path="docs/design/">SAD, ADRs, data and API models. Diagrams in docs/design/diagrams/.</directorio>
+    <directorio path="docs/development/">Implementation documents, fix register, refactoring, closure. Runbooks in docs/development/operations/.</directorio>
+    <directorio path="docs/quality/">Test strategy, cases, pipeline artifacts, and test evidence.</directorio>
+    <directorio path="docs/qa/">Findings, observations, acceptance, and QA closure. Reference quality evidence. Do not copy it.</directorio>
+    <directorio path="docs/estimates/">Cost, velocity, baselines, and variance.</directorio>
+    <regla>Create docs/ only when it is absent. Create a subdirectory only when an artifact needs it. Do not create empty directories.</regla>
+    <regla>Do not add a new top-level lifecycle folder for a new document type.</regla>
+  </estructura>
+
+  <ubicacion>
+    <fila artefacto="SRS, requirements, backlog, extended backlog, scope" destino="docs/planning/"/>
+    <fila artefacto="SAD, ADR, data and API models" destino="docs/design/"/>
+    <fila artefacto="Mermaid sources" destino="docs/design/diagrams/"/>
+    <fila artefacto="user-stories, code-structure, implementation-report, integration-report" destino="docs/development/"/>
+    <fila artefacto="fix register, refactoring documents" destino="docs/development/"/>
+    <fila artefacto="deployment and operational runbook" destino="docs/development/operations/"/>
+    <fila artefacto="technical closure" destino="docs/development/"/>
+    <fila artefacto="test strategy, cases, pipeline artifacts" destino="docs/quality/"/>
+    <fila artefacto="QA findings, observations, QA closure" destino="docs/qa/"/>
+    <fila artefacto="cost estimate, rates, velocity, variance" destino="docs/estimates/"/>
+  </ubicacion>
+
+  <resolucion>
+    <regla>A phase reads the promoted path in the lifecycle directory.</regla>
+    <regla>If that file does not exist, read the legacy file under docs/vexarq/current/.</regla>
+    <regla>docs/vexarq/current/INDEX.md lists id, lifecycle path, legacy path, and status. It is not a second copy of the document.</regla>
+    <regla>Migration of an existing consumer project uses git mv, one authoritative copy, and asks before moving.</regla>
+  </resolucion>
+
+  <metadatos>
+    <campo>id, title, purpose, status, version, date, scope, owner when known, depends_on, provenance summary.</campo>
+    <estados>DRAFT, PRELIMINARY, CURRENT, SUPERSEDED, ARCHIVED</estados>
+    <regla>Before creating a document, inspect what exists and update the authoritative file when that is enough.</regla>
+    <regla>Do not create a document only because a template exists. A trivial fix does not create an estimate or a diagram.</regla>
+  </metadatos>
+
+  <indice>
+    <archivo>docs/README.md</archivo>
+    <contenido>Directory purpose, authoritative documents, status, conventions, and detected roots.</contenido>
+  </indice>
+</prompt>

@@ -2,7 +2,7 @@
 <prompt>
   <metadata>
     <name>CORE — Global policies of VEXARQ</name>
-    <version>3.0.0</version>
+    <version>3.1.0</version>
     <sistema>VEXARQ, the evolution of FRAMAI. The portable folder is .ai-vexarq/. The user-story engine is kept.</sistema>
     <usage>Load this file at every stage. Specialized prompts inherit these rules and do not repeat them unless an exception is justified.</usage>
     <modulos_core>
@@ -14,6 +14,10 @@
       <modulo archivo="execution-modes.xml" carga="validar or continuo mode, and rigor profile"/>
       <modulo archivo="artifact-lineage.xml" carga="whenever a phase document is read or written"/>
       <modulo archivo="approval-gates.xml" carga="lifecycle and any irreversible action"/>
+      <modulo archivo="quality-pipeline.xml" carga="any implementation, fix, refactor, or delivery claim"/>
+      <modulo archivo="documentation-governance.xml" carga="whenever a project document is placed"/>
+      <modulo archivo="finding-contract.xml" carga="any audit finding"/>
+      <modulo archivo="economics.xml" carga="when cost, velocity, or budget is requested or the activation rule matches"/>
     </modulos_core>
   </metadata>
 
@@ -40,6 +44,7 @@
     <prohibicion>Do not modify .ai-vexarq/sources/canon/. Those files are executed as they are.</prohibicion>
     <prohibicion>Do not touch directories or repositories the user marks as untouchable. At the end, verify that they are unchanged.</prohibicion>
     <prohibicion>Do not use emoji in code, UI, generated documentation, or commits.</prohibicion>
+    <prohibicion>Do not declare an implementation complete while quality-pipeline.xml reports an unresolved mandatory gate.</prohibicion>
   </prohibiciones_absolutas>
 
   <politica_cambios_minimos>

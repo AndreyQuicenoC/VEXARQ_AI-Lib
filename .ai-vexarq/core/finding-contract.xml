@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prompt>
+  <metadata>
+    <id>core.finding-contract</id>
+    <name>CORE — Shared audit finding</name>
+    <version>3.1.0</version>
+    <hereda>policies.xml</hereda>
+    <usage>Every auditor uses this shape. Do not redefine it inside an agent.</usage>
+  </metadata>
+
+  <campos>
+    <campo>ID</campo>
+    <campo>title</campo>
+    <campo>category</campo>
+    <campo>severity: CRITICAL, HIGH, MEDIUM, LOW, or INFO</campo>
+    <campo>confidence: CONFIRMED, LIKELY, or POTENTIAL</campo>
+    <campo>evidence: file and line, redacted command output, or reproduction. CONFIRMED requires evidence.</campo>
+    <campo>affected assets</campo>
+    <campo>impact</campo>
+    <campo>exploitability or likelihood when relevant</campo>
+    <campo>recommendation</campo>
+    <campo>remediation priority</campo>
+    <campo>status</campo>
+  </campos>
+
+  <reglas>
+    <regla>Store findings incrementally in docs/qa/. Reference them from the fix register and the pipeline report.</regla>
+    <regla>Distinguish a confirmed defect, an inferred risk, and a pending clarification.</regla>
+    <regla>Redact secrets, tokens, personal data, emails, hostnames, and connection strings before writing.</regla>
+    <regla>Do not include a working exploit.</regla>
+  </reglas>
+</prompt>

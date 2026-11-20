@@ -110,6 +110,20 @@
       </estrategia>
       <consumo_estimado>80-150K tokens</consumo_estimado>
     </nivel>
+
+    <nivel name="CRITICAL">
+      <caracteristicas>
+        <item>Authentication, payment, personal data, or an irreversible migration, even when the diff is small</item>
+        <item>The highest-risk dimension raises the level. It never lowers it</item>
+      </caracteristicas>
+      <estrategia>
+        <accion ejecutar="si">Everything required at COMPLEX</accion>
+        <accion ejecutar="si">Human approval before implementation and before merge or publish</accion>
+        <accion ejecutar="si">Rollback plan, security audit, and performance audit when that dimension is in scope</accion>
+        <accion ejecutar="si">Quality pipeline full applicable run. Gates are not reduced at lower levels either</accion>
+      </estrategia>
+      <compatibilidad>A 3.0.0 classification of COMPLEX stays COMPLEX unless a risk dimension raises it to CRITICAL.</compatibilidad>
+    </nivel>
   </clasificacion_complejidad>
 
   <carga_selectiva_politicas>

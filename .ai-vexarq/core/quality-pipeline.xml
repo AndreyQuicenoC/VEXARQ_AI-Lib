@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prompt>
+  <metadata>
+    <id>core.quality-pipeline</id>
+    <name>CORE — Quality Pipeline Controller</name>
+    <version>3.1.0</version>
+    <hereda>policies.xml</hereda>
+    <usage>Single source of truth for gate order, states, recovery, and evidence invalidation. Specialists reference this file. They do not redefine gates. Extends engineering-standards.xml quality_gates; it does not replace layer checks inside V1/V2.</usage>
+    <max_attempts_per_failure_class>3</max_attempts_per_failure_class>
+  </metadata>
+
+  <principio>
+    <regla>No specialist may declare an implementation successful while any mandatory gate is unresolved.</regla>
+    <regla>An unexecuted test is not a passed test. A missing tool or script is BLOCKED, never PASSED.</regla>
+    <regla>Every result names the commit SHA or working-tree hash it was produced against.</regla>
+    <regla>Local runs and CI runs are different evidence. Never claim CI success from a local run.</regla>
+  </principio>
+
+  <estados>PENDING, RUNNING, PASSED, FAILED, BLOCKED, NOT_APPLICABLE</estados>
+  <estado_reglas>
+    <regla>NOT_APPLICABLE requires a justification tied to repository evidence.</regla>
+    <regla>BLOCKED is never success.</regla>
+    <regla>A gate never disappears from the report.</regla>
+  </estado_reglas>
+
+  <orden>
+    <gate id="G-00">Repository and environment inspection. Detect stack, package manager, scripts, framework, and runtime versions.</gate>
+    <gate id="G-01">Baseline validation on unmodified code. Classify pre-existing failures.</gate>
+    <gate id="G-02">Configuration and dependency verification. Lockfiles, install, and .env.example completeness.</gate>
+    <gate id="G-03">XML, config, and schema validation when those artifacts exist.</gate>
+    <gate id="G-04">Format and lint with the project's configured tools.</gate>
+    <gate id="G-05">Static analysis, including SonarQube or SonarCloud only when configured.</gate>
+    <gate id="G-06">Type checking with the stack's real checker.</gate>
+    <gate id="G-07">Architecture and dependency-boundary checks, or a documented manual check.</gate>
+    <gate id="G-08">Unit tests.</gate>
+    <gate id="G-09">Integration tests.</gate>
+    <gate id="G-10">Database and migration validation, including rollback evidence when migrations exist.</gate>
+    <gate id="G-11">API and contract tests.</gate>
+    <gate id="G-12">Security validation: SAST, dependency audit, secret scan, configuration review.</gate>
+    <gate id="G-13">Performance validation when a threshold or measured baseline exists.</gate>
+    <gate id="G-14">End-to-end tests on a real stack. A mocked backend does not support an E2E claim.</gate>
+    <gate id="G-15">Production build.</gate>
+    <gate id="G-16">Packaging and container validation when images or packages are in scope.</gate>
+    <gate id="G-17">Final full regression of every applicable gate on the final code.</gate>
+    <gate id="G-18">Documentation and evidence reconciliation against the final SHA.</gate>
+  </orden>
+
+  <adaptadores>
+    <nota>Discover real scripts. Never assume npm test exists. Unknown stack becomes BLOCKED with a request to the user.</nota>
+    <stack id="node">package.json scripts, lockfile, tsc when tsconfig exists.</stack>
+    <stack id="python">pyproject.toml or requirements.txt; pytest, unittest, mypy, or pyright when configured.</stack>
+    <stack id="jvm">pom.xml or build.gradle; Maven or Gradle test and check tasks that exist.</stack>
+    <stack id="dotnet">dotnet test and dotnet build when a project or solution exists.</stack>
+    <stack id="go">go test ./... when go.mod exists.</stack>
+    <stack id="rust">cargo test and cargo build when Cargo.toml exists.</stack>
+    <stack id="php">composer scripts and phpunit when composer.json exists.</stack>
+    <stack id="iac">terraform validate, helm lint, or compose config only when those files exist.</stack>
+  </adaptadores>
+
+  <ejecucion>
+    <regla>Run gates in order. Do not start a later mandatory gate while an earlier mandatory gate is unresolved.</regla>
+    <regla>Independent gates may run together only when the policy for that stack marks them parallel-safe. Dependents wait for all of them.</regla>
+    <regla>Record for each gate: id, description, exact command, working directory, environment prerequisites, start, end, exit code, result, redacted output, diagnosis, corrective action, and SHA or tree hash.</regla>
+  </ejecucion>
+
+  <recuperacion>
+    <paso>Stop progression.</paso>
+    <paso>Preserve the diagnostic output after redaction.</paso>
+    <paso>Identify the root cause by reproduction. Do not guess.</paso>
+    <paso>Classify the failure: pre-existing, introduced by the change, environment, infrastructure, invalid test, or implementation defect.</paso>
+    <paso>Apply the smallest correction. Review the diff for scope, side effects, and secrets.</paso>
+    <paso>Invalidate affected evidence. In 3.1.0 any source, test, config, lockfile, migration, build, or CI change invalidates all gate results for that project root.</paso>
+    <paso>Rerun the applicable pipeline from G-00. Do not implement incremental revalidation in 3.1.0.</paso>
+    <paso>After 3 attempts for the same failure class, set BLOCKED, keep the attempts, and ask a person.</paso>
+  </recuperacion>
+
+  <invalidacion>
+    <regla>Documentation-only changes invalidate G-18 and any gate that consumes the changed document.</regla>
+    <regla>A previous green result is never reused. The final report shows one final hash.</regla>
+  </invalidacion>
+
+  <prohibido>
+    <regla>Do not delete a failing test to get green.</regla>
+    <regla>Do not weaken an assertion or change an expected value to hide a defect.</regla>
+    <regla>Do not ignore a non-zero exit code.</regla>
+    <regla>Do not mark NOT_APPLICABLE without justification.</regla>
+    <regla>Do not treat a baseline failure as permission to skip the gate. Resolve it or record explicit human acceptance with who, when, and scope.</regla>
+    <regla>A flaky test may be quarantined only with explicit approval and a tracked follow-up.</regla>
+  </prohibido>
+
+  <ci>
+    <regla>When CI exists, read the workflow files, identify mandatory jobs, and confirm they ran on the final SHA.</regla>
+    <regla>A later commit invalidates prior CI evidence. Unavailable CI is a limitation, not a pass.</regla>
+  </ci>
+
+  <artefactos>
+    <archivo>docs/quality/QUALITY_PIPELINE.md</archivo>
+    <archivo>docs/quality/GATE_EXECUTION_REPORT.md</archivo>
+    <archivo>docs/quality/TEST_EVIDENCE.md</archivo>
+    <archivo>docs/quality/FAILURE_RECOVERY_REPORT.md</archivo>
+    <contrato>formats/quality/</contrato>
+  </artefactos>
+
+  <integracion>
+    <regla>V1 and V2 remain. V2 feeds G-08 through G-14.</regla>
+    <regla>Backend, Frontend, Integrator, targeted-fix, refactoring, and descriptive implementation delegate the done decision to this controller.</regla>
+    <regla>The Integrator checks QPC status. It does not declare completion while a mandatory gate is unresolved.</regla>
+  </integracion>
+</prompt>

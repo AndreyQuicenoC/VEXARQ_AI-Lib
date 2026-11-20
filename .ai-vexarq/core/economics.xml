@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prompt>
+  <metadata>
+    <id>core.economics</id>
+    <name>CORE — Project economics</name>
+    <version>3.1.0</version>
+    <hereda>policies.xml</hereda>
+    <activacion>User request, contractual need, or complexity at or above MODERATE when the user supplied rates or effort data. A TRIVIAL or SIMPLE fix does not activate this module.</activacion>
+  </metadata>
+
+  <prohibiciones>
+    <regla>Do not invent hourly rates, salaries, velocity, actual hours, cloud prices, or model prices.</regla>
+    <regla>Do not assume a country, a currency, or an exchange rate. Ask.</regla>
+    <regla>Do not present a preliminary estimate as an approved budget or as actual expenditure.</regla>
+    <regla>Do not compute CPI or SPI when EV, AC, or PV is missing.</regla>
+    <regla>Do not overwrite an approved baseline. Changes go to a change-cost analysis.</regla>
+    <regla>Do not modify the canonical backlog or the 22-column extended CSV. Economics is a companion file.</regla>
+    <regla>Unverified provider prices are PROVISIONAL and name the assumed rate.</regla>
+  </prohibiciones>
+
+  <formulas>
+    <formula id="labor-cost">Sum of actual hours by role times the hourly rate of that role. Units: currency.</formula>
+    <formula id="estimated-labor">Sum of estimated hours by role times the hourly rate of that role.</formula>
+    <formula id="capacity">Available productive hours times available contributors. Subtract leave, holidays, meetings, and apply a stated focus factor.</formula>
+    <formula id="average-velocity">Accepted story points divided by completed sprints. Not points merely marked done.</formula>
+    <formula id="story-cost">Sum of effort by role times the hourly rate of that role.</formula>
+    <formula id="cv">EV minus AC.</formula>
+    <formula id="sv">EV minus PV.</formula>
+    <formula id="cpi">EV divided by AC. Invalid when AC is zero or missing.</formula>
+    <formula id="spi">EV divided by PV. Invalid when PV is zero or missing.</formula>
+    <formula id="eac-typical">BAC divided by CPI, when past cost performance is expected to continue.</formula>
+    <formula id="eac-reestimate">AC plus a bottom-up ETC.</formula>
+    <formula id="eac-atypical">AC plus BAC minus EV, when the variance is a one-off.</formula>
+    <formula id="vac">BAC minus EAC.</formula>
+    <formula id="pert">Expected equals (optimistic plus 4 times most likely plus pessimistic) divided by 6. Sigma is about (pessimistic minus optimistic) divided by 6. Label it as an assumption.</formula>
+  </formulas>
+
+  <metodos>Analogous, parametric from real history, bottom-up, three-point, relative sizing. COCOMO II is only an orientative cross-check. Record the method. A flat contingency percentage is STANDARD_ASSUMPTION.</metodos>
+
+  <contenido_obligatorio>Method, sources, assumptions, exclusions, confidence, low/expected/high range, cost drivers, risks, sensitivity, date, revision history, and the class: preliminary, refined, approved baseline, actual, or forecast.</contenido_obligatorio>
+
+  <salidas>
+    <archivo>docs/estimates/PROJECT_COST_ESTIMATE.md</archivo>
+    <archivo>docs/estimates/HOURLY_RATES_AND_COST_MODEL.md</archivo>
+    <archivo>docs/estimates/BACKLOG_COST_ESTIMATE.md</archivo>
+    <archivo>docs/estimates/COST_TRACKING.md</archivo>
+    <archivo>docs/estimates/COST_BASELINE.md</archivo>
+    <archivo>docs/estimates/CHANGE_COST_ANALYSIS.md</archivo>
+    <archivo>docs/estimates/BUDGET_VARIANCE_REPORT.md</archivo>
+    <archivo>docs/estimates/TEAM_VELOCITY_ANALYSIS.md</archivo>
+    <archivo>docs/estimates/PROJECT_ECONOMIC_CLOSURE.md</archivo>
+    <regla>Generate only the files the activation and the available data justify. Living files are updated in place. An approved baseline is snapshotted and not edited.</regla>
+  </salidas>
+</prompt>
