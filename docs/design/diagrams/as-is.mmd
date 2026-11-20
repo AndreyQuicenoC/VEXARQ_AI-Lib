@@ -1,0 +1,9 @@
+flowchart LR
+  user[User request] --> life[Lifecycle orchestrator]
+  life --> phases[Phase prompts]
+  phases --> prelim[preliminary]
+  prelim --> current[current]
+  current --> hu[User-story orchestrator]
+  hu --> be[Backend]
+  hu --> fe[Frontend]
+  hu --> integ[Integrator]
