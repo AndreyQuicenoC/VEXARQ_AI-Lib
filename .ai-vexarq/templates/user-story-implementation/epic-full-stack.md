@@ -1,4 +1,7 @@
 @.ai-vexarq/core/policies.xml
+@.ai-vexarq/core/language.xml
+@.ai-vexarq/core/documentation-governance.xml
+@.ai-vexarq/core/quality-pipeline.xml
 @.ai-vexarq/workflows/user-story-implementation/orchestrator.xml
 
 Implement the following User Stories (batch / epic) using the user-story-implementation multi-agent workflow.
@@ -13,8 +16,8 @@ Implement the following User Stories (batch / epic) using the user-story-impleme
    - @.ai-vexarq/core/engineering-standards.xml
    - @.ai-vexarq/core/git-workflow.xml
    - @.ai-vexarq/core/project-modes.xml
-4. Each agent updates docs/ (user-stories.md, code-structure.md, implementation-report.md, integration-report.md)
-5. Implement real code and run ALL the quality gates; do not declare COMPLETED without evidence
+4. Each agent updates `docs/development/` per documentation-governance (legacy `docs/` if the project still uses it)
+5. Implement real code; rerun quality-pipeline from G-00 after each change; do not declare COMPLETED without evidence on final SHA
 6. Do not stop at analysis alone; produce verifiable changes
 
 ---

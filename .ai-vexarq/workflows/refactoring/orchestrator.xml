@@ -6,17 +6,49 @@
     <version>3.1.0</version>
     <hereda>../../core/policies.xml</hereda>
     <referencia path="../../core/quality-pipeline.xml"/>
+    <referencia path="../../core/documentation-governance.xml"/>
     <referencia path="../user-story-implementation/backend.xml"/>
     <referencia path="../user-story-implementation/frontend.xml"/>
     <capas>frontend, backend, or full-stack. Full-stack order is shared contract, backend, frontend, integrator.</capas>
   </metadata>
 
   <compuerta>
-    <requerido>SRS in docs/planning/ or legacy docs/vexarq/current/srs/.</requerido>
-    <requerido>SAD in docs/design/ or legacy docs/vexarq/current/sad/.</requerido>
-    <requerido>Backlog in docs/planning/ or legacy docs/vexarq/current/backlog/.</requerido>
-    <requerido>Test strategy, coverage plan, or test specification in docs/quality/.</requerido>
-    <ausente>Return exactly: BLOCKED — REQUIRED DOCUMENTATION MISSING. Then list each missing document and why it is needed. Do not edit code. Read-only search for the documents is allowed.</ausente>
+    <requerido id="SRS" proposito="Source of functional truth and behavior that must be preserved">
+      <ruta_vida>docs/planning/SRS.md</ruta_vida>
+      <ruta_legado>docs/vexarq/current/srs/SRS.md</ruta_legado>
+      <contrato>formats/srs/SRS.md</contrato>
+      <como_producir>Lifecycle phase srs after discovery, or paste templates/lifecycle/fase.md with phase srs.</como_producir>
+    </requerido>
+    <requerido id="SAD" proposito="Source of architectural truth, boundaries, and allowed contract changes">
+      <ruta_vida>docs/design/SAD.md</ruta_vida>
+      <ruta_legado>docs/vexarq/current/sad/SAD.md</ruta_legado>
+      <contrato>formats/sad/SAD.md</contrato>
+      <como_producir>Lifecycle phase sad after SRS and database, or promote an existing architecture document that matches the format.</como_producir>
+    </requerido>
+    <requerido id="Backlog" proposito="Scope of stories and priorities; prevents silent scope drift">
+      <ruta_vida>docs/planning/BACKLOG.md</ruta_vida>
+      <ruta_legado>docs/vexarq/current/backlog/BACKLOG.md</ruta_legado>
+      <contrato>formats/backlog/BACKLOG.md</contrato>
+      <como_producir>Lifecycle phase backlog using the canon generator, or a current backlog that already passed validation.</como_producir>
+    </requerido>
+    <requerido id="TestPlan" proposito="Verification source; defines how behavior is proven before and after refactor">
+      <ruta_vida>docs/quality/TEST_STRATEGY.md</ruta_vida>
+      <ruta_legado>none — create under docs/quality/</ruta_legado>
+      <contrato>formats/quality/TEST_STRATEGY.md</contrato>
+      <como_producir>Workflow workflows/documents/test-documentation.xml mode strategy, from the current SRS and discovered test commands.</como_producir>
+    </requerido>
+    <busqueda>Read-only search in lifecycle and legacy paths. If both paths are absent or empty, the document counts as missing.</busqueda>
+    <ausente>
+      <titulo>BLOCKED — REQUIRED DOCUMENTATION MISSING</titulo>
+      <regla>Do not edit code. Do not start analysis beyond locating files. Write the message in the user's language using language.xml.</regla>
+      <secciones_salida>
+        <seccion name="Summary">Why refactoring cannot start and what the user must supply.</seccion>
+        <seccion name="Missing documents">One subsection per missing id. Each subsection MUST include: Purpose, Primary path, Legacy path, Format contract (path under .ai-vexarq/formats/), How to produce (phase template or workflow), Minimum content checklist (3–5 bullets from the format index).</seccion>
+        <seccion name="Found documents">List ids that were found with the path used.</seccion>
+        <seccion name="Substitutions">If the user named an equivalent document in this request, record it here with limitations. Otherwise write: None.</seccion>
+        <seccion name="Next action">Numbered steps for the user: create or promote each missing file, then re-run the same template.</seccion>
+      </secciones_salida>
+    </ausente>
     <excepcion>The user may name a substitute source of truth in the conversation. Record the substitution, its limit, and the risk in the assessment. Do not invent the substitution.</excepcion>
   </compuerta>
 
@@ -27,7 +59,7 @@
     <fase>Plan small behavior-preserving steps. Name the technique and the rollback. Prefer expand, migrate, and contract for data and APIs.</fase>
     <fase>Execute one step at a time. After each code change, rerun the quality pipeline from G-00.</fase>
     <fase>Compare the final behavior with the baseline. A public contract changes only when the SRS allows it.</fase>
-    <fase>Write docs/development/REFACTORING_ASSESSMENT.md and docs/development/REFACTORING_COMPLIANCE_REPORT.md.</fase>
+    <fase>Write docs/development/REFACTORING_ASSESSMENT.md and docs/development/REFACTORING_COMPLIANCE_REPORT.md using formats/development/REFACTORING.md.</fase>
   </fases>
 
   <prohibido>

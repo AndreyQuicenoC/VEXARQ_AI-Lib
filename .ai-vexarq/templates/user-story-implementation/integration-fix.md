@@ -1,4 +1,6 @@
 @.ai-vexarq/core/policies.xml
+@.ai-vexarq/core/language.xml
+@.ai-vexarq/core/quality-pipeline.xml
 @.ai-vexarq/workflows/user-story-implementation/integrator.xml
 
 Validate and correct the integration of HU-XXX.
@@ -10,7 +12,7 @@ Validate and correct the integration of HU-XXX.
 
 ## References
 
-Read the prior analysis: `docs/implementation-report.md` section HU-XXX
+Read the prior analysis: `docs/development/implementation-report.md` (or legacy `docs/implementation-report.md`) section HU-XXX
 
 ## Task
 
@@ -18,7 +20,7 @@ Read the prior analysis: `docs/implementation-report.md` section HU-XXX
 2. Detect Backend ↔ Frontend incompatibilities
 3. Correct minimally if necessary
 4. Run integration/E2E tests
-5. Update docs/implementation-report.md and docs/integration-report.md
+5. Update implementation-report and integration-report under `docs/development/`; rerun quality-pipeline after fixes
 
 ## Expected output
 

@@ -20,7 +20,7 @@
     <paso>Classify complexity with adaptive-policies.xml, including CRITICAL.</paso>
     <paso>If the request is a product phase, delegate to workflows/lifecycle/orchestrator.xml.</paso>
     <paso>If the request is a user story on existing code, delegate to workflows/user-story-implementation/orchestrator.xml.</paso>
-    <paso>If the request is a refactor, delegate to workflows/refactoring/orchestrator.xml and stop when that workflow is blocked.</paso>
+    <paso>If the request is a refactor, delegate to workflows/refactoring/orchestrator.xml. When the gate fails, return the full BLOCKED message from that workflow to the user without shortening it.</paso>
     <paso>If the request is a local fix, use templates/targeted-fix/ and the quality pipeline. Do not open the product lifecycle.</paso>
     <paso>Otherwise write an execution contract inside docs/development/implementation-report.md.</paso>
     <paso>Select specialists from the routing rules. State why each selected specialist is needed and why the others are not.</paso>
