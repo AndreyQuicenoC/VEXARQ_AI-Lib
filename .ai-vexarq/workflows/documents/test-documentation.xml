@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prompt>
+  <metadata>
+    <id>documents.test</id>
+    <name>Test strategy, cases, and evidence</name>
+    <version>3.1.0</version>
+    <hereda>../../core/policies.xml</hereda>
+    <formato>formats/quality/TEST_STRATEGY.md</formato>
+    <modos>strategy, cases, evidence</modos>
+    <origen>Structure derived from a coverage-and-cases example. No example project content is copied.</origen>
+  </metadata>
+
+  <depende>Current SRS and the test commands discovered in the repository. If the SRS is missing, stop in validar mode or write PENDING sections in continuo mode.</depende>
+
+  <estrategia>
+    <seccion>Purpose, audience, and scope.</seccion>
+    <seccion>Coverage definition and the modules the project calls critical. Do not copy a percentage from another project. A missing threshold is PENDING.</seccion>
+    <seccion>Priority cases tied to requirement identifiers.</seccion>
+    <seccion>Matrix: case, requirement, quality-pipeline gate, and the real tool or script.</seccion>
+    <seccion>Matrix: acceptance criterion and the evidence that would satisfy it.</seccion>
+    <seccion>Metric inventory. A metric without a command is not a result.</seccion>
+  </estrategia>
+
+  <casos>
+    <campo>Case id, requirement id, preconditions, steps, expected result.</campo>
+    <campo>Actual result, status, and SHA stay empty until a run exists.</campo>
+  </casos>
+
+  <evidencia>docs/quality/TEST_EVIDENCE.md records the command, counts, result, and SHA. It does not predict a pass.</evidencia>
+</prompt>

@@ -10,7 +10,9 @@ Guide: [guides/usar-vexarq.md](guides/usar-vexarq.md).
 
 | File | Use |
 |---|---|
+| [workflows/factory/orchestrator.xml](workflows/factory/orchestrator.xml) | Classifies the request and delegates |
 | [workflows/lifecycle/orchestrator.xml](workflows/lifecycle/orchestrator.xml) | Detects the phase or walks the cycle |
+| [core/quality-pipeline.xml](core/quality-pipeline.xml) | Decides when implementation is done |
 | [core/language.xml](core/language.xml) | Selects the language of generated text and code comments |
 | [templates/lifecycle/ciclo.md](templates/lifecycle/ciclo.md) | Text to paste, validar mode |
 | [templates/lifecycle/fase.md](templates/lifecycle/fase.md) | A single phase |
@@ -29,4 +31,4 @@ Do not edit [sources/canon/](sources/canon/). The example from another project i
 
 The adaptive engine (orchestrator, backend, frontend, integrator, complexity profiles, and standards) is kept. Its operating guide remains [guides/user-story-implementation.xml](guides/user-story-implementation.xml).
 
-Version 3.0.0.
+Version 3.1.0. The 3.0.0 lifecycle entry point still works.

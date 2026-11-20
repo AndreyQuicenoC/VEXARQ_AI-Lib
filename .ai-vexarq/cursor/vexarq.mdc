@@ -8,10 +8,12 @@ alwaysApply: true
 
 The portable system lives in `.ai-vexarq/`. It evolves FRAMAI; do not delete the user-story workflow.
 
-- Lifecycle entry point: `.ai-vexarq/workflows/lifecycle/orchestrator.xml`.
+- Factory entry: `.ai-vexarq/workflows/factory/orchestrator.xml`. Lifecycle entry, still valid: `.ai-vexarq/workflows/lifecycle/orchestrator.xml`.
 - Language: follow `.ai-vexarq/core/language.xml`. Detect the user's language. If the user names a language, use that language for generated code, text, and other artifacts.
 - Default mode: `validar`. Use `continuo` only when the user asks for it.
-- Write phase artifacts to `docs/vexarq/preliminary/`. The next phase reads only `docs/vexarq/current/`.
+- Write phase drafts to `docs/vexarq/preliminary/`. A promoted document lives in the lifecycle directory from `.ai-vexarq/core/documentation-governance.xml`. If that file is absent, read `docs/vexarq/current/`.
+- Done means `.ai-vexarq/core/quality-pipeline.xml` has no unresolved mandatory gate.
+- A refactor starts only when the SRS, SAD, backlog, and test document exist.
 - Do not modify `.ai-vexarq/sources/canon/`.
 - Do not push without a remote, a branch, and explicit authorization.
 - Do not edit files outside the scope or break existing behavior to finish a task.

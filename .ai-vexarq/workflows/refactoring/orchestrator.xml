@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prompt>
+  <metadata>
+    <id>refactor.orchestrator</id>
+    <name>Refactoring engine</name>
+    <version>3.1.0</version>
+    <hereda>../../core/policies.xml</hereda>
+    <referencia path="../../core/quality-pipeline.xml"/>
+    <referencia path="../user-story-implementation/backend.xml"/>
+    <referencia path="../user-story-implementation/frontend.xml"/>
+    <capas>frontend, backend, or full-stack. Full-stack order is shared contract, backend, frontend, integrator.</capas>
+  </metadata>
+
+  <compuerta>
+    <requerido>SRS in docs/planning/ or legacy docs/vexarq/current/srs/.</requerido>
+    <requerido>SAD in docs/design/ or legacy docs/vexarq/current/sad/.</requerido>
+    <requerido>Backlog in docs/planning/ or legacy docs/vexarq/current/backlog/.</requerido>
+    <requerido>Test strategy, coverage plan, or test specification in docs/quality/.</requerido>
+    <ausente>Return exactly: BLOCKED — REQUIRED DOCUMENTATION MISSING. Then list each missing document and why it is needed. Do not edit code. Read-only search for the documents is allowed.</ausente>
+    <excepcion>The user may name a substitute source of truth in the conversation. Record the substitution, its limit, and the risk in the assessment. Do not invent the substitution.</excepcion>
+  </compuerta>
+
+  <fases>
+    <fase>Confirm scope, goals, non-goals, and the definition of done.</fase>
+    <fase>Run the quality-pipeline baseline. Add characterization tests before changing weakly tested behavior.</fase>
+    <fase>Analyze debt, boundaries, and contracts. Call security, complexity, or performance auditors only when the factory routing rule says so.</fase>
+    <fase>Plan small behavior-preserving steps. Name the technique and the rollback. Prefer expand, migrate, and contract for data and APIs.</fase>
+    <fase>Execute one step at a time. After each code change, rerun the quality pipeline from G-00.</fase>
+    <fase>Compare the final behavior with the baseline. A public contract changes only when the SRS allows it.</fase>
+    <fase>Write docs/development/REFACTORING_ASSESSMENT.md and docs/development/REFACTORING_COMPLIANCE_REPORT.md.</fase>
+  </fases>
+
+  <prohibido>
+    <regla>Do not delete or weaken a test to finish a refactor.</regla>
+    <regla>If the change would contradict the SAD, stop and propose an ADR.</regla>
+    <regla>Do not copy backend or frontend policies into this file. Reference them.</regla>
+  </prohibido>
+</prompt>

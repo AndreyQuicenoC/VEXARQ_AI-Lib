@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prompt>
+  <metadata>
+    <id>agents.registry</id>
+    <name>Specialist registry</name>
+    <version>3.1.0</version>
+    <hereda>../../core/policies.xml</hereda>
+  </metadata>
+
+  <agente id="security-audit" archivo="security-audit.xml" cuando="Authentication, authorization, personal data, payments, file upload, or a new public endpoint, at MODERATE or above."/>
+  <agente id="code-complexity" archivo="code-complexity.xml" cuando="MODERATE or above, or an explicit complexity audit. Read only."/>
+  <agente id="query-performance" archivo="query-performance.xml" cuando="A slow operation, a stated latency risk, or a performance audit."/>
+  <agente id="git-commit" archivo="git-commit.xml" cuando="Any commit the user requested."/>
+  <agente id="ai-audio" archivo="ai-audio.xml" cuando="The request processes or generates audio."/>
+  <agente id="ai-video" archivo="ai-video.xml" cuando="The request processes or generates video."/>
+  <agente id="data-engineering" archivo="data-engineering.xml" cuando="ETL, a warehouse, a metric, or a dashboard."/>
+  <agente id="observability" archivo="observability.xml" cuando="Logging, tracing, metrics, or a background or distributed flow."/>
+  <agente id="test-quality" archivo="test-quality.xml" cuando="A test audit, weak coverage around a refactor, or flaky tests."/>
+  <agente id="accessibility" archivo="accessibility.xml" cuando="A user interface is created or changed."/>
+
+  <rechazados>
+    <item>Dependency and supply-chain audit stays inside security-audit.</item>
+    <item>API contract review stays with the Integrator and the SAD. No separate agent.</item>
+    <item>Architecture compliance is a check inside refactoring and the Integrator, not a new agent.</item>
+  </rechazados>
+
+  <handoff>
+    <regla>A handoff names inputs, decisions, contracts, open items, and artifact paths. It does not paste the artifacts.</regla>
+    <regla>Load only the agents the routing rule selects, plus policies those agents reference.</regla>
+  </handoff>
+</prompt>

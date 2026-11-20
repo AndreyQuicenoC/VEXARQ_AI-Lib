@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prompt>
+  <metadata>
+    <id>documents.closure</id>
+    <name>Technical and QA closure</name>
+    <version>3.1.0</version>
+    <hereda>../../core/policies.xml</hereda>
+    <formato>formats/development/CLOSURE.md</formato>
+    <modos>technical, qa</modos>
+  </metadata>
+
+  <tecnico salida="docs/development/TECHNICAL_CLOSURE.md">Scope delivered, scope not delivered, deviations, residual risk, and links to implementation and pipeline evidence. An approval block stays empty until a person signs it.</tecnico>
+  <qa salida="docs/qa/QA_CLOSURE.md">Acceptance against requirements, open findings by severity, and release readiness. Evidence is referenced from docs/quality/, not copied.</qa>
+  <regla>Closure uses executed evidence. A projection is labeled forecast, not result.</regla>
+</prompt>

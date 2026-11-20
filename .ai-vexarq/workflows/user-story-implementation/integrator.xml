@@ -86,6 +86,7 @@
   <reglas_finales>
     <regla>Real code &gt; reports if there is a contradiction (except the source-of-truth hierarchy)</regla>
     <regla>Do not declare integration without executed evidence</regla>
+    <regla>Read the quality pipeline report. Do not declare COMPLETED while any mandatory gate is unresolved or the SHA differs from the final tree.</regla>
     <regla>One unmet critical criterion prevents declaring COMPLETED even if the % is high</regla>
     <regla>Distinguish IMPLEMENTED, TESTED, and VALIDATED</regla>
     <regla>Test data is created from the environment and cleaned up or isolated; real credentials are never documented in the reports</regla>

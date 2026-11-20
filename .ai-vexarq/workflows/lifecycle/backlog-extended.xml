@@ -98,5 +98,6 @@
     <regla>Do not assign people or dates.</regla>
     <regla>Do not modify the current backlog from this phase.</regla>
     <regla>An ambiguity is noted or asked. It is not resolved in silence.</regla>
+    <regla>When economics is active, cost is a companion file. Do not add columns to this CSV.</regla>
   </restricciones>
 </prompt>

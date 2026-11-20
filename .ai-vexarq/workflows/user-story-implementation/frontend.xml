@@ -89,5 +89,6 @@
     <regla>Never use emojis; use the project's icons when visual communication is needed</regla>
     <regla>Keep preexisting docs/; do not delete project documentation</regla>
     <regla>Do not declare COMPLETED with red tests, a broken build, or secrets in the tree</regla>
+    <regla>Completion is delegated to core/quality-pipeline.xml. A specialist result is not the final done decision.</regla>
   </reglas_finales>
 </prompt>

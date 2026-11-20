@@ -15,7 +15,7 @@
     <paso>Extract entities, documents, or events from the current requirements. Do not add aggregates that no requirement uses.</paso>
     <paso>If the project already has a schema, start from that schema and mark the changes. Do not replace it with an ideal model disconnected from it.</paso>
     <paso>Deliver a conceptual, logical, and physical model. Relational: keys, cardinalities, uniqueness, integrity, justified indexes, and a deletion policy. Document: collections, keys, indexes, validations, and access patterns.</paso>
-    <paso>Include a Mermaid diagram and a short dictionary in the same document, with a link to formats/database/DATA_DICTIONARY.md if the dictionary grows.</paso>
+    <paso>Include a Mermaid entity-relationship diagram as docs/design/diagrams/data-model.mmd and a short dictionary in the same document, with a link to formats/database/DATA_DICTIONARY.md if the dictionary grows.</paso>
     <paso>Propose versioned migrations only as a design. Do not execute them in this phase.</paso>
     <paso>Personal data, retention, and least privilege are explicit when the SRS implies them.</paso>
   </hacer>

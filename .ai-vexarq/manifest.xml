@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<vexarq-library version="3.0.0">
+<vexarq-library version="3.1.0">
   <identity>
     <name>VEXARQ</name>
     <predecessor>FRAMAI</predecessor>
     <portable-root>.ai-vexarq</portable-root>
     <entry>.ai-vexarq/workflows/lifecycle/orchestrator.xml</entry>
+    <factory-entry>.ai-vexarq/workflows/factory/orchestrator.xml</factory-entry>
   </identity>
 
   <formats>
@@ -17,7 +18,8 @@
     <preliminary>docs/vexarq/preliminary/</preliminary>
     <current>docs/vexarq/current/</current>
     <tracker>docs/vexarq/status.html</tracker>
-    <rule>A later phase reads only docs/vexarq/current/.</rule>
+    <rule>A later phase reads the promoted lifecycle path. If it is absent, it reads docs/vexarq/current/.</rule>
+    <index>docs/vexarq/current/INDEX.md</index>
   </lineage>
 
   <phases>
@@ -32,4 +34,22 @@
     <phase id="entrega" prompt="workflows/lifecycle/delivery.xml" format="formats/reports/REQUEST_REPORT.md"/>
     <phase id="recomendaciones" prompt="workflows/lifecycle/recommendations.xml" format="formats/reports/RECOMMENDATIONS.md" current="docs/vexarq/current/recomendaciones/RECOMENDACIONES.md"/>
   </phases>
+
+  <modules version="3.1.0">
+    <module id="quality-pipeline" path="core/quality-pipeline.xml"/>
+    <module id="documentation-governance" path="core/documentation-governance.xml"/>
+    <module id="finding-contract" path="core/finding-contract.xml"/>
+    <module id="economics" path="core/economics.xml"/>
+    <module id="factory" path="workflows/factory/orchestrator.xml"/>
+    <module id="refactoring" path="workflows/refactoring/orchestrator.xml"/>
+    <module id="agents" path="workflows/agents/registry.xml"/>
+    <module id="test-documentation" path="workflows/documents/test-documentation.xml"/>
+    <module id="runbook" path="workflows/documents/runbook.xml"/>
+    <module id="observations" path="workflows/documents/observations.xml"/>
+    <module id="closure" path="workflows/documents/closure.xml"/>
+    <module id="adr" path="workflows/documents/adr.xml"/>
+    <module id="diagrams" path="workflows/documents/diagrams.xml"/>
+    <module id="cost-estimate" path="workflows/economics/estimate.xml"/>
+    <module id="cost-track" path="workflows/economics/track.xml"/>
+  </modules>
 </vexarq-library>

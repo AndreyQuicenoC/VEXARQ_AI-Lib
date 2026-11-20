@@ -1,30 +1,18 @@
-# Template — Targeted correction (front / back / full-stack)
+# Targeted correction
 
-## Metadata
+Load `.ai-vexarq/workflows/factory/orchestrator.xml` and `.ai-vexarq/core/quality-pipeline.xml`.
 
-| Field | Value |
-|-------|--------|
-| **Type** | `targeted-fix` |
-| **Scope** | `frontend-only` \| `backend-only` \| `full-stack` |
-| **Complexity** | `auto` (inferred) or `TRIVIAL` … `COMPLEX` |
+Scope: frontend, backend, or full-stack.
+This is not a lifecycle walk.
 
-## Expected input
+1. Reproduce the symptom.
+2. Record the root cause.
+3. Apply the smallest fix and a regression test.
+4. Run the quality pipeline from G-00 after every code change.
+5. Append `docs/development/FIX_REGISTER.md` using `.ai-vexarq/formats/development/FIX_REGISTER.md`.
+6. Redact secrets, tokens, personal data, and exploit detail.
+7. Commit only when asked, through the Git specialist. Do not push.
 
-- List of UX corrections, bugs, or improvements (not necessarily a user story).
-- Affected repositories and base branch (`feature/ep-XX-…` or `develop`).
-- Optional visual reference (e.g. demo in `DashNode-Demo/`).
-- Constraints: do not break CI, safe migrations, literal domain messages.
+Request:
 
-## Recommended flow
-
-1. **Orchestrator** with `requested_scope` and batch mode if there are >10 items.
-2. Classify complexity (`auto`: count files, auth, migrations, API contracts).
-3. **Backend** first if there are new contracts or security rules.
-4. **Frontend** aligned to the demo (Lucide icons, no emojis in production UI).
-5. **Integrator**: `make check` / `npm run check`, migration `alembic upgrade head`.
-6. Separate commits per layer or per theme (`fix(ui): …`, `feat(auth): …`).
-
-## Output
-
-- Summary of closed items vs pending.
-- Test evidence and push to the agreed branch.
+[Symptom, expected behavior, and where to look.]
