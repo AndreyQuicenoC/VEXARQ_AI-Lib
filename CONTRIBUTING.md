@@ -26,4 +26,4 @@ Use [Conventional Commits](https://www.conventionalcommits.org/):
 
 ## License
 
-By contributing, you agree that your contributions will be licensed under the MIT License.
+By contributing, you agree that your contributions will be licensed under the proprietary terms in LICENSE, subject to legal review.

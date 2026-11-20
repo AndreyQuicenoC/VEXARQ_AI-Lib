@@ -5,6 +5,30 @@ All notable changes to this multi-agent prompt ecosystem will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [3.1.0] - 2026-11-20
+
+Incremental factory release. Version 3.0.0 entry points keep working.
+
+### Added
+
+- Quality Pipeline Controller with gates G-00 through G-18, full rerun after a code change, and a three-attempt block.
+- Factory orchestrator, specialist registry, refactoring engine, document generators, Mermaid rules, and a cost engine.
+- Lifecycle documentation placement. Promoted files move to `docs/planning/`, `docs/design/`, `docs/development/`, `docs/quality/`, `docs/qa/`, and `docs/estimates/`. `docs/vexarq/current/` remains the fallback.
+- Complexity level CRITICAL.
+- Fix register for targeted corrections.
+
+### Changed
+
+- License is proprietary, all rights reserved. Copies already received under MIT stay under MIT.
+- An implementation is done only when the quality pipeline says so.
+- SRS format gains baseline, security, accessibility, privacy, deployment, release acceptance, and an empty approval block.
+
+### Migration
+
+- Keep reading `docs/vexarq/current/` until a file is promoted with `git mv` into its lifecycle directory.
+- Do not add columns to the 22-column extended backlog. Cost is a companion file.
+- New and changed modules are version 3.1.0. Unchanged prompts keep their previous version. The release version is 3.1.0.
+
 ## [3.0.0] - 2026-10-18
 
 VEXARQ replaces the name FRAMAI, and the portable folder changes from `.ai/` to `.ai-vexarq/`. The user-story engine from 2.2.0 is kept.
